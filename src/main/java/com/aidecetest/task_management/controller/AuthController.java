@@ -1,5 +1,6 @@
 package com.aidecetest.task_management.controller;
 
+import com.aidecetest.task_management.dto.ApiResponse;
 import com.aidecetest.task_management.dto.LoginRequest;
 import com.aidecetest.task_management.dto.LoginResponse;
 import com.aidecetest.task_management.service.AuthService;
@@ -20,10 +21,17 @@ public class AuthController {
   }
 
   @PostMapping("/login")
-  public ResponseEntity<LoginResponse> login(
+  public ResponseEntity<ApiResponse<LoginResponse>> login(
     @RequestBody LoginRequest request
   ) {
-    LoginResponse response = authService.login(request);
+    LoginResponse loginResponse = authService.login(request);
+
+    ApiResponse<LoginResponse> response = ApiResponse.<LoginResponse>builder()
+      .status(true)
+      .data(loginResponse)
+      .message("Successfully Login!!")
+      .build();
+
     return ResponseEntity.ok(response);
   }
 }
