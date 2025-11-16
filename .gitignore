@@ -1,3 +1,6 @@
+# Exclude sensitive configuration files
+src/main/resources/application.properties
+
 HELP.md
 target/
 .mvn/wrapper/maven-wrapper.jar
@@ -28,9 +31,6 @@ target/
 build/
 !**/src/main/**/build/
 !**/src/test/**/build/
-
-# Exclude sensitive configuration files
-/src/main/resources/application.properties
 
 ### VS Code ###
 .vscode/
