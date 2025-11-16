@@ -26,8 +26,16 @@ public class SecurityConfig {
       .csrf(csrf -> csrf.disable())
       .authorizeHttpRequests(authz ->
         authz
-          .requestMatchers("/api/auth/login")
-          .permitAll()
+          .requestMatchers(
+            "/api/auth/login",
+            "/swagger-ui.html", // Halaman utama
+            "/swagger-ui/**", // Aset statis (CSS/JS)
+            "/v3/api-docs/**", // Definisi API
+            "/webjars/**", // Sumber daya statis (Penting untuk Swagger)
+            "/error" // Penting untuk error handling
+          )
+          .permitAll() // Izinkan semua akses ke jalur-jalur di atas
+          // Semua request lain harus diautentikasi
           .anyRequest()
           .authenticated()
       )
