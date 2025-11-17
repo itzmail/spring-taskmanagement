@@ -1,17 +1,16 @@
 spring.application.name=task-management
 
-server.port=8081
+server.port=8080
 
-spring.datasource.url=jdbc:postgresql://localhost:55432/taskdb
-spring.datasource.username=myuser
-spring.datasource.password=mypass
+spring.datasource.url=
+spring.datasource.username=
+spring.datasource.password=
 
-# Konfigurasi JPA (Hibernate)
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
 
-# Konfigurasi Dasar Open API
+
 springdoc.swagger-ui.path=/swagger-ui.html
 springdoc.info.title=Task Management API
 springdoc.info.version=1.0.0
